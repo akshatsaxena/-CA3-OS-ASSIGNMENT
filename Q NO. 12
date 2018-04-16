@@ -1,0 +1,56 @@
+#include<stdlib.h>
+#include<stdio.h>
+#include<conio.h>
+int main()
+{  int ar[5],wt[5],ttat;
+ double w;
+int sum=0,pos;
+char ch;
+	int tat[5]={0};
+	int i,j,temp,small;
+	FILE *fp;
+	fp=fopen("burst.txt","r");
+	ch=fgetc(fp);
+	while(ch!=EOF)
+	{  for(i=0;i<5;i++)
+		{ ar[i]=atoi(&ch);
+		ch=fgetc(fp);
+	}
+	} 
+		int n=4;
+		x:
+			small=ar[0];
+		for(i=0;i<n;i++)
+		{  if(n==0)
+			i=-1;
+			if(small>ar[i+1])
+			{small=ar[i+1];
+			pos=i+1;
+			}
+		}
+		sum=sum+small;
+		
+		tat[n]=sum;
+		
+		temp=ar[pos];
+		ar[pos]=ar[n];
+		ar[n]=temp;
+			
+		n--;
+		
+	
+		while(n!=-1)
+		goto x;
+		tat[0]=tat[0]+1;
+	for(j=0;j<5;j++)
+	{
+			printf("%d %5d  \n",ar[j],tat[j]);
+		ttat=ttat+tat[j];
+		wt[j]=tat[j]-ar[j];
+		w=wt[j]+w;
+	}	
+	printf("average turn around time is :%d \n",(ttat/5));
+	printf("average waiting time is: %f\n",(w/5));
+return 0;
+
+}
